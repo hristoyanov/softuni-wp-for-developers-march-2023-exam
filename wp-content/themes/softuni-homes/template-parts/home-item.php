@@ -38,5 +38,3 @@ $location = get_the_terms( get_the_ID(), 'location' );
         </div>
     </div>
 </div>
-
-<?php su_homes_update_home_views_count( get_the_ID() );
