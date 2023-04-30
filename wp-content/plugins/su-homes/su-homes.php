@@ -7,3 +7,4 @@
 
 require 'cpt-home.php';
 require 'functions.php';
+require 'shortcodes.php';

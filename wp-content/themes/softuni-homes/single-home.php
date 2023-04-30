@@ -3,7 +3,6 @@
 if ( have_posts() ) :
 	while( have_posts() ) :
 		the_post(); ?>
-        <?php var_dump(get_post_meta( get_the_ID(), 'likes', true ));?>
         <div class="property-card">
             <div class="property-primary">
                 <?php $visits = get_post_meta( get_the_ID(), 'visits_count', true ); ?>

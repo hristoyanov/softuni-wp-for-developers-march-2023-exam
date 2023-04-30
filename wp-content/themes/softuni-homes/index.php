@@ -1,12 +1,12 @@
 <?php get_header(); ?>
 
+<?php if ( have_posts() ) : ?>
 <ul class="properties-listing">
-	<?php if ( have_posts() ) :
-		while( have_posts() ) : the_post();
+		<?php while( have_posts() ) : the_post();
 			get_template_part( 'template-parts/home', 'item' );
-		endwhile;
-		posts_nav_link();
-	endif; ?>
+		endwhile; ?>
 </ul>
+	<?php posts_nav_link();
+	endif; ?>
 		
 <?php get_footer(); ?>
