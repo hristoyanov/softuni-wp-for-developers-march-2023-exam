@@ -1,5 +1,7 @@
 <?php
 
+add_theme_support( 'post-thumbnails' );
+
 /**
  * This function takes care of handling the assets with enqueue
  *

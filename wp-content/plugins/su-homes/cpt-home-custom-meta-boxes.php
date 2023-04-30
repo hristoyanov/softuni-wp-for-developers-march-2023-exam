@@ -5,7 +5,7 @@ function cpt_home_price_custom_box() {
 	foreach ( $screens as $screen ) {
 		add_meta_box(
 			'home-price',
-			'Price',
+			'Price per sq. m',
 			'cpt_home_price_html',
 			$screen
 		);
@@ -16,7 +16,6 @@ add_action( 'add_meta_boxes', 'cpt_home_price_custom_box' );
 function cpt_home_price_html( $post ) {
   $curr_price = get_post_meta( $post->ID, 'price', true );
 	?>
-  <label for="home-price-field">Price:</label>
 	<input <?php if ( !empty($curr_price) ): echo 'value="' . $curr_price . '"'; endif; ?> type="text" name="price" id="home-price-field" required placeholder="Example: 500 000" class="postbox" style="margin-bottom: 0;">
 	<?php
 }
@@ -71,13 +70,6 @@ function cpt_home_price_currency_save_postdata( $post_id ) {
 	}
 }
 add_action( 'save_post', 'cpt_home_price_currency_save_postdata' );
-
-
-
-
-
-
-
 
 function cpt_home_area_custom_box() {
 	$screens = [ 'home', ];
