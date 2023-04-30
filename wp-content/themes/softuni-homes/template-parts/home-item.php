@@ -1,5 +1,7 @@
 <li class="property-card">
     <div class="property-primary">
+        <?php $value = get_post_meta( get_the_ID(), 'visits_count', true );
+        var_dump($value);?>
         <h2 class="property-title">
             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
         </h2>

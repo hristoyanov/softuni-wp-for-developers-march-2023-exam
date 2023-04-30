@@ -13,12 +13,14 @@ function su_homes_update_home_views_count( $id ) {
     // if ( ! is_single( 'job' ) ) {
     //     return;
     // }
-    
-    if ( metadata_exists( 'home', $id, 'views_count' ) ) {
-        $view_count = get_post_meta( $id, 'views_count', true );
-    } else {
-        $view_count = 0;
-    }
 
-    update_post_meta( $id, 'views_count', $view_count++ );
+    $visit_count = get_post_meta( $id, 'visits_count', true );
+
+    if ( ! empty( $visit_count ) ) {
+        $visit_count = $visit_count + 1;
+
+        update_post_meta( $id, 'visits_count', $visit_count );
+    } else {
+        update_post_meta( $id, 'visits_count', 1 );
+    }
 }
