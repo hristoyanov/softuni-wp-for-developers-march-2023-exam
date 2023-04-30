@@ -6,6 +6,8 @@ if ( have_posts() ) :
         $post_meta = get_post_meta( get_the_ID() );
         $visits = get_post_meta( get_the_ID(), 'visits_count', true );
         $likes = get_post_meta( get_the_ID(), 'likes', true );
+        $country = get_the_terms( get_the_ID(), 'country' );
+        $location = get_the_terms( get_the_ID(), 'location' );
         $rooms =  isset( $post_meta['rooms'] ) ? unserialize( $post_meta['rooms'][0] ) : [];
         $details =  isset( $post_meta['details'] ) ? unserialize( $post_meta['details'][0] ) : [];
         $args = array(
@@ -24,7 +26,7 @@ if ( have_posts() ) :
                         <header class="property-header">
                             <h2 class="property-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                             <div class="property-meta">
-                                <span class="meta-location"><?php echo get_the_terms( get_the_ID(), 'location' )[0]->name; ?></span>
+                                <span class="meta-location"><?php if ( !empty( $location ) ): echo $location[0]->name . ', '; endif; if ( !empty( $country ) ): echo $country[0]->name; endif; ?></span>
                                 <span class="meta-total-area">Price: <?php echo $post_meta['price'][0]; echo $post_meta['price_currency'][0];?>/sq.m</span>
                             </div>
 

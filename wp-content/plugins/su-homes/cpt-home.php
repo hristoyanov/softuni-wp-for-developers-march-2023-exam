@@ -40,6 +40,40 @@ function softuni_home_cpt() {
 }
 add_action( 'init', 'softuni_home_cpt' );
 
+
+/**
+ * Register a 'country' taxonomy for post type 'home'.
+ *
+ */
+function softuni_home_country_taxonomy() {
+    $labels = array(
+		'name'              => _x( 'Country', 'taxonomy general name', 'softuni' ),
+		'singular_name'     => _x( 'Country', 'taxonomy singular name', 'softuni' ),
+		'search_items'      => __( 'Search Countries', 'softuni' ),
+		'all_items'         => __( 'All Countries', 'softuni' ),
+		'parent_item'       => __( 'Parent Country', 'softuni' ),
+		'parent_item_colon' => __( 'Parent Country:', 'softuni' ),
+		'edit_item'         => __( 'Edit Country', 'softuni' ),
+		'update_item'       => __( 'Update Country', 'softuni' ),
+		'add_new_item'      => __( 'Add New Country', 'softuni' ),
+		'new_item_name'     => __( 'New Country Name', 'softuni' ),
+		'menu_name'         => __( 'Country', 'softuni' ),
+	);
+
+    $args = array(
+		'hierarchical'      => false,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+        'show_in_rest'      => true
+	);
+
+
+    register_taxonomy( 'country', 'home', $args );
+}
+add_action( 'init', 'softuni_home_country_taxonomy' );
+
 /**
  * Register a 'location' taxonomy for post type 'home'.
  *
@@ -60,7 +94,7 @@ function softuni_home_location_taxonomy() {
 	);
 
     $args = array(
-		'hierarchical'      => true,
+		'hierarchical'      => false,
 		'labels'            => $labels,
 		'show_ui'           => true,
 		'show_admin_column' => true,

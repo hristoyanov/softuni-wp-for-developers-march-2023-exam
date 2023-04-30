@@ -2,6 +2,8 @@
 $post_meta = get_post_meta( get_the_ID() );
 $visits = get_post_meta( get_the_ID(), 'visits_count', true );
 $likes = get_post_meta( get_the_ID(), 'likes', true );
+$country = get_the_terms( get_the_ID(), 'country' );
+$location = get_the_terms( get_the_ID(), 'location' );
 ?>
 <div class="property-card">
     <div class="property-primary">
@@ -10,7 +12,7 @@ $likes = get_post_meta( get_the_ID(), 'likes', true );
             <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
         </h2>
         <div class="property-meta">
-            <span class="meta-location"><?php echo get_the_terms( get_the_ID(), 'location' )[0]->name; ?></span>
+            <span class="meta-location"><?php if ( !empty( $location ) ): echo $location[0]->name . ', '; endif; if ( !empty( $country ) ): echo $country[0]->name; endif; ?></span>
             <span class="meta-total-area">| Total area: <?php echo $post_meta['area'][0]; ?> sq.m</span>
         </div>
         <div>
