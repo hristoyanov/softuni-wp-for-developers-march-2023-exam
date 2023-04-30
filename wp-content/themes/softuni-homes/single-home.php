@@ -3,6 +3,7 @@
 if ( have_posts() ) :
 	while( have_posts() ) :
 		the_post(); ?>
+        <?php var_dump(get_post_meta( get_the_ID(), 'likes', true ));?>
         <div class="property-card">
             <div class="property-primary">
                 <?php $visits = get_post_meta( get_the_ID(), 'visits_count', true ); ?>
@@ -17,6 +18,7 @@ if ( have_posts() ) :
                     <span class="property-price">€ 100,815</span>
                     <span class="property-date">Posted on: <?php the_date(); ?></span>
                     <span class="property-date">| Views: <?php echo $visits; ?></span>
+                    <span class="property-date">| Likes: <?php echo get_post_meta( get_the_ID(), 'likes', true ); ?></span>
                 </div>
             </div>
             <div class="property-image">
@@ -34,6 +36,7 @@ if ( have_posts() ) :
                 </div>
             </div>
         </div>
+        <a id="<?php echo get_the_ID(); ?>" class="button like-button" href="#">Like</a>
 
         <?php su_homes_update_home_views_count( get_the_ID() );
 
