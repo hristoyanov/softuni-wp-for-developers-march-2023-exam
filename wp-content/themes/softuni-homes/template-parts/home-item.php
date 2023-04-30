@@ -8,7 +8,7 @@ $post_meta = get_post_meta( get_the_ID() ); ?>
         </h2>
         <div class="property-meta">
             <span class="meta-location"><?php echo get_the_terms( get_the_ID(), 'location' )[0]->name; ?></span>
-            <span class="meta-total-area">Total area: <?php echo $post_meta['area'][0]; ?> sq.m</span>
+            <span class="meta-total-area">| Total area: <?php echo $post_meta['area'][0]; ?> sq.m</span>
         </div>
         <div>
             <?php the_content(); ?>
@@ -23,7 +23,6 @@ $post_meta = get_post_meta( get_the_ID() ); ?>
     <div class="property-image">
         <div class="property-image-box">
             <!-- <img src="images/bedroom.jpg" alt="property image"> -->
-            <div class="logo-box">
                 <?php
                     if ( has_post_thumbnail() ) {
                         the_post_thumbnail();
@@ -31,7 +30,6 @@ $post_meta = get_post_meta( get_the_ID() ); ?>
                         echo '<img src="https://i.imgur.com/ZbILm3F.png" alt="default thumbnail">';
                     }
                 ?>
-            </div>
         </div>
     </div>
 </div>

@@ -15,7 +15,6 @@
     <div class="property-image">
         <div class="property-image-box">
             <!-- <img src="images/bedroom.jpg" alt="property image"> -->
-            <div class="logo-box">
                 <?php
                     if ( has_post_thumbnail() ) {
                         the_post_thumbnail();
@@ -23,7 +22,6 @@
                         echo '<img src="https://i.imgur.com/ZbILm3F.png" alt="default thumbnail">';
                     }
                 ?>
-            </div>
         </div>
     </div>
 </li>

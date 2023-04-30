@@ -59,9 +59,9 @@ function su_homes_update_home_views_count( $id ) {
 }
 
 /**
- * Add current year to title
+ * Add current year to content
 *
-* @param [type] $title
+* @param [type] $content
 * @return void
 */
 function add_current_year_to_content( $content ) {
