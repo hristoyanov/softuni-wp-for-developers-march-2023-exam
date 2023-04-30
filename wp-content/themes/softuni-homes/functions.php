@@ -23,7 +23,7 @@ function su_homes_register_nav_menu(){
         'footer_menu'  => __( 'Footer Menu', 'softuni' ),
     ) );
 }
-
+add_action( 'after_setup_theme', 'su_homes_register_nav_menu', 0 );
 
 /**
  * Filter for oldschool page/post editing

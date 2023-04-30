@@ -605,5 +605,12 @@ a {
   max-width: 8em;
   max-height: 4em;
 }
+#menu-primary {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+#menu-primary .menu-item {margin: 0 0.5rem;}
+.current-menu-item {text-decoration: underline;}
 
 /*# sourceMappingURL=master.css.map */
