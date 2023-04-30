@@ -57,3 +57,15 @@ function su_homes_update_home_views_count( $id ) {
         update_post_meta( $id, 'visits_count', 1 );
     }
 }
+
+/**
+ * Add current year to title
+*
+* @param [type] $title
+* @return void
+*/
+function add_current_year_to_content( $content ) {
+    $year = date( 'Y' );
+    return $content . "<p>Data for: {$year}.</p>" ;
+}
+add_filter( 'the_content', 'add_current_year_to_content', 10 );

@@ -8,3 +8,4 @@
 require 'cpt-home.php';
 require 'functions.php';
 require 'shortcodes.php';
+require 'cpt-home-custom-meta-boxes.php';
