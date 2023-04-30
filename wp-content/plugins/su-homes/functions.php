@@ -65,7 +65,10 @@ function su_homes_update_home_views_count( $id ) {
 * @return void
 */
 function add_current_year_to_content( $content ) {
-    $year = date( 'Y' );
-    return $content . "<p>Data for: {$year}.</p>" ;
+    if ( get_post_type() == 'page' ) {
+        $year = date( 'Y' );
+        return $content . "<p>Data for: {$year}. (From basic filter)</p>" ;
+    }
+    return $content;
 }
 add_filter( 'the_content', 'add_current_year_to_content', 10 );
