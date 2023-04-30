@@ -6,6 +6,8 @@ if ( have_posts() ) :
         $post_meta = get_post_meta( get_the_ID() );
         $visits = get_post_meta( get_the_ID(), 'visits_count', true );
         $likes = get_post_meta( get_the_ID(), 'likes', true );
+        $rooms =  isset( $post_meta['rooms'] ) ? unserialize( $post_meta['rooms'][0] ) : [];
+        $details =  isset( $post_meta['details'] ) ? unserialize( $post_meta['details'][0] ) : [];
         $args = array(
             'post_type'			=> 'home',
             'post_status'		=> 'publish',
@@ -32,12 +34,15 @@ if ( have_posts() ) :
                                         <h3>Rooms</h3>
                                     </div>
                                     <div class="property-details-card-body">
+                                    <?php if ( !empty( $rooms ) ): ?>
                                         <ul>
-                                            <li>2 Bedrooms</li>
-                                            <li>1 Bathroom</li>
-                                            <li>1 Living room</li>
-                                            <li>Separated kitchen</li>
+                                            <?php foreach( $rooms as $entry ): ?>
+                                            <li><?php echo $entry; ?></li>
+                                            <?php endforeach; ?>
                                         </ul>
+                                    <?php else: ?>
+                                        <p>No data.</p>
+                                    <?php endif; ?>
                                     </div>
                                 </div>
                                 <div class="property-details-card">
@@ -45,14 +50,15 @@ if ( have_posts() ) :
                                         <h3>Additional Details</h3>
                                     </div>
                                     <div class="property-details-card-body">
+                                    <?php if ( !empty( $details ) ): ?>
                                         <ul>
-                                            <li>Floor: 6</li>
-                                            <li>Elevator/Lift</li>
-                                            <li>Brick-built</li>
-                                            <li>Electricity</li>
-                                            <li>Water Supply</li>
-                                            <li>Heating</li>
+                                            <?php foreach( $details as $entry ): ?>
+                                            <li><?php echo $entry; ?></li>
+                                            <?php endforeach; ?>
                                         </ul>
+                                    <?php else: ?>
+                                        <p>No data.</p>
+                                    <?php endif; ?>
                                     </div>
                                 </div>
                             </div>

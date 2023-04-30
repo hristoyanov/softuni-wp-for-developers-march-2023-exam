@@ -71,4 +71,29 @@ function add_current_year_to_content( $content ) {
     }
     return $content;
 }
-add_filter( 'the_content', 'add_current_year_to_content', 10 );
+# add_filter( 'the_content', 'add_current_year_to_content', 10 );
+
+/**
+ * This filter checks if the current user is the author of the currently viewed blog post
+ * 
+*
+* @param [type] $content
+* @return void
+*/
+function add_author_name_to_post_content( $content ) {
+    global $post;
+    if ( get_post_type() == 'post' && is_single() ) {
+        $author_id = get_post_field( 'post_author', $post->ID );
+        $author_name = get_the_author_meta( 'display_name', $author_id );
+
+        if ( $author_id == get_current_user_id() ) {
+            return $content . "<p>Hey! This is your post, {$author_name}!</p>" ;
+        }
+
+        return $content . "<p>This is a post from a different user.</p>";
+    }
+
+    return $content;
+
+}
+add_filter( 'the_content', 'add_author_name_to_post_content', 10 );
