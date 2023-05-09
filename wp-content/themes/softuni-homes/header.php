@@ -23,11 +23,13 @@
                 <p class="site-title">
                     <a href="<?php echo esc_url( get_home_url() ); ?>">Properties Offers</a>
                 </p>
-            <?php endif; ?>
+            <?php endif;
+            if ( is_user_logged_in() ) : ?>
             <div class="user-info">
                 Logged in as:
                 <span><?php echo wp_get_current_user()->display_name; ?></span>
             </div>
+            <?php endif; ?>
 		</header>
         
         <div class="header-nav-menu">

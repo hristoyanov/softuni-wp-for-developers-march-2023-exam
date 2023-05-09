@@ -16,7 +16,7 @@ add_action( 'add_meta_boxes', 'cpt_home_price_custom_box' );
 function cpt_home_price_html( $post ) {
   $curr_price = get_post_meta( $post->ID, 'price', true );
 	?>
-	<input <?php if ( !empty($curr_price) ): echo 'value="' . $curr_price . '"'; endif; ?> type="text" name="price" id="home-price-field" required placeholder="Example: 500 000" class="postbox" style="margin-bottom: 0;">
+	<input <?php if ( !empty($curr_price) ): echo 'value="' . $curr_price . '"'; endif; ?> type="text" name="price" id="home-price-field" required placeholder="Example: 500" class="postbox" style="margin-bottom: 0;">
 	<?php
 }
 
@@ -160,7 +160,7 @@ add_action( 'add_meta_boxes', 'cpt_home_details_custom_box' );
 function cpt_home_details_html( $post ) {
 	$details = get_post_meta( $post->ID, 'details', true );
 	?>
-	<textarea name="details" id="details-field" class="postbox" rows="10" cols="75" placeholder="Anything else you'd like to add. Please separated entries with comma (,)" style="margin-bottom: 0; padding: 0.5rem;"><?php if ( !empty($details) ): echo implode( ', ', $details ); endif; ?></textarea>
+	<textarea name="details" id="details-field" class="postbox" rows="10" cols="75" placeholder="Anything else you'd like to add. Please separate entries with comma (,)" style="margin-bottom: 0; padding: 0.5rem;"><?php if ( !empty($details) ): echo implode( ', ', $details ); endif; ?></textarea>
 	<?php
 }
 

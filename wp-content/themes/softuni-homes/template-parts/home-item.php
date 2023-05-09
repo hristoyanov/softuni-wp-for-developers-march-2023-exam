@@ -1,7 +1,7 @@
 <?php
 $post_meta = get_post_meta( get_the_ID() );
-$visits = get_post_meta( get_the_ID(), 'visits_count', true );
-$likes = get_post_meta( get_the_ID(), 'likes', true );
+$visits = $post_meta['visits_count'][0];
+$likes = $post_meta['likes'][0];
 $country = get_the_terms( get_the_ID(), 'country' );
 $location = get_the_terms( get_the_ID(), 'location' );
 ?>

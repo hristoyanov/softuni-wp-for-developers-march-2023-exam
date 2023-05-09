@@ -9,7 +9,7 @@
             <?php the_content(); ?>
         </div>
         <div class="property-details">
-            <span class="property-date">Posted on: <?php the_date(); ?></span>
+            <span class="property-date">Posted on: <?php echo get_the_date(); ?></span>
             <span>| By: <?php the_author_posts_link(); ?></span>
         </div>
     </div>
